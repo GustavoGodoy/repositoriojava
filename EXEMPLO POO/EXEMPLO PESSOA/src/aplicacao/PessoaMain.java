@@ -25,13 +25,13 @@ public class PessoaMain {
 		Vendedor vendedor1 = new Vendedor("Alien Baraldi","R. Araucarias","(11)93332-6977",90.0,0.5);
 		System.out.println("VENDEDOR");
 		System.out.println("NOME: "+vendedor1.getNome()+" END: "+vendedor1.getEndereco()+" TEL: "+vendedor1.getTelefone());
-		System.out.printf("VALOR BRUTO: R$ %.2f + PORCENTAGEM DA COMISSÃO: %.2f = R$ %.2f \n",vendedor1.getValorProducao(),vendedor1.getComissao()*100,vendedor1.valorFinal());
+		System.out.printf("VALOR BRUTO: R$ %.2f PORCENTAGEM DA COMISSÃO: %.2f = R$ %.2f \n",vendedor1.getValorProducao(),vendedor1.getComissao()*100,vendedor1.valorFinal());
 		System.out.print("--------------------------------------------------------------------------\n");
 		// OPERARIO - HERDA PESSOA
 		Operario op1 = new Operario("Venancio Alexandre","R. Araras","(11)92222-4444",190.0,0.1);
 		System.out.println("OPERÁRIO");
 		System.out.println("NOME: "+op1.getNome()+" END: "+op1.getEndereco()+" TEL: "+op1.getTelefone());
-		System.out.printf("VALOR BRUTO: R$ %.2f + PORCENTAGEM DA COMISSÃO: %.2f = R$ %.2f \n",op1.getValorProducao(),op1.getComissao()*100,op1.valorFinal());
+		System.out.printf("VALOR BRUTO: R$ %.2f PORCENTAGEM DA COMISSÃO: %.2f  = R$ %.2f \n",op1.getValorProducao(),op1.getComissao()*100,op1.valorFinal());
 		System.out.print("--------------------------------------------------------------------------\n");
 		// FORNECEDOR - HERDA PESSOA
 		Fornecedor fornecedor1 = new Fornecedor("Arquimedes Silva","R. 23 de Maio","(11)97070-2321",190.0,33.0);

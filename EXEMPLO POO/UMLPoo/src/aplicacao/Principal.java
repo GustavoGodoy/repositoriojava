@@ -1,15 +1,57 @@
 package aplicacao;
 
+import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
+
 import entidades.Funcionario;
 import entidades.Terceiros;
 
 public class Principal {
 	public static void main(String[] args) {
-		Funcionario novo = new Funcionario("Pedro Joao", 5, 50);
-		Terceiros novo1 = new Terceiros("Alexandre Fernandes",6,50,2);
-		System.out.println("\n----------------------------------------FUNCIONARIOS-----------------------------------------\n");
-		System.out.println("NOME: " + novo.getNome() + "\nHORAS TRABALHADAS: "+novo.getHorasTrabalhadas()+"\nVALOR POR HORA: R$"+novo.getValorPorHora()+"\nVALOR A SER RECEBIDO: R$"+novo.pagamento());
-		System.out.println("\n-----------------------------------------TERCEIROS--------------------------------------------\n");
-		System.out.println("NOME: " + novo1.getNome() + "\nHORAS TRABALHADAS: "+novo1.getHorasTrabalhadas()+"\nHORAS ADICIONAIS: "+novo1.getHorasAdicionais()+"\nVALOR POR HORA: R$"+novo1.getValorPorHora()+"\nVALOR A SER RECEBIDO: R$"+novo1.pagamento());
+		
+		int num;
+		char opc;
+		String nome;
+		int hora;
+		double valorHora;
+		double horaAdd;
+		
+		Scanner tc = new Scanner(System.in);
+		List<Funcionario> list = new ArrayList<>();
+
+		System.out.print("Digite o numero de funcionarios: ");
+		num = tc.nextInt();
+		
+		for (int i=1; i <= num; i++) {
+			System.out.println("CADASTRO FUNCIONARIO "+i+": ");
+			System.out.print("TERCEIRO? [S/N]: ");
+			opc = tc.next().toUpperCase().charAt(0);
+			System.out.print("NOME: ");
+			nome = tc.next().toUpperCase();
+			System.out.print("HORAS TRABALHADAS: ");
+			hora = tc.nextInt();
+			System.out.print("VALOR HORA TRABALHADA: ");
+			valorHora = tc.nextDouble();
+			if(opc == 'S') {
+				System.out.println("HORAS ADICIONAIS: ");
+				horaAdd = tc.nextDouble();
+				list.add(new Terceiros(nome,hora,valorHora,horaAdd));
+			}else {
+				list.add(new Funcionario(nome,hora,valorHora));
+			}
+		}
+		
+		System.out.println();
+		System.out.println("PAGAMENTOS");
+		for(Funcionario func:list) {
+			System.out.println("NOME: "+func.getNome()+" | VALOR POR HORA R$"+func.getValorPorHora());
+			System.out.println("R$"+func.pagamento());
+		}
+		
+		
+		
+	tc.close();	
 	}
 }
+

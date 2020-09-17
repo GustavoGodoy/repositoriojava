@@ -4,7 +4,9 @@ public class Terceiros extends Funcionario{
 
 	private double horasAdicionais;
 	
-	
+	public Terceiros() {
+		
+	}
 	public Terceiros(String nome) {
 		super(nome);
 	}
